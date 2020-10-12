@@ -11,7 +11,7 @@ logging.basicConfig(filename='log.log',
 class CodeMaker:
     url = 'https://sketch.hoylu.com/'
 
-    def __init__(self, input_file, username='course.support@idesignedu.org', password='vm"h9Uc$_b9H',
+    def __init__(self, input_file,
                  url = 'https://sketch.hoylu.com/', driver_path='chromedriver.exe', short_sleep=1, long_sleep=3,
                  output_folder='sketchcodes'):
         """
@@ -25,8 +25,8 @@ class CodeMaker:
             self.courses = f.read()
 
         self.url = url
-        self.username = username
-        self.password = password
+        self.username = input('username:\n')
+        self.password = input('password:\n')
         self.output_folder = output_folder
         if not os.path.exists(output_folder):
             os.mkdir(output_folder)
