@@ -19,8 +19,6 @@ class CodeMaker:
         >>> cm = CodeMaker('courses.tsv')
         >>> cm.run()
         """
-
-
         with open(input_file) as f:
             self.courses = f.read()
 
@@ -33,19 +31,13 @@ class CodeMaker:
 
         self.courses = [line.split() for line in self.courses.splitlines()]
         self.sketch_codes = {item[0]: {} for item in self.courses}
-
-
         self.driver = webdriver.Chrome(driver_path)
         self.short_sleep = short_sleep
         self.long_sleep = long_sleep
 
-
-
-
     def run(self):
         self.login()
         self.make_codes()
-
 
     def make_codes(self):
         first = True
@@ -78,15 +70,6 @@ class CodeMaker:
                     f.write(output_line)
                 print(output_line)
 
-
-
-
-
-
-
-
-
-
     def login(self):
         self.driver.get(self.url)
         sleep(self.long_sleep)
@@ -100,7 +83,6 @@ class CodeMaker:
         login_button = self.driver.find_element_by_class_name('b19')
         login_button.click()
         sleep(self.long_sleep)
-
 
 def tsv_fixer(fn):
     with open(fn) as f:
